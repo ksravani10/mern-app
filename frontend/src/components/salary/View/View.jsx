@@ -29,7 +29,7 @@ const View = () => {
 
     useEffect(() => {
         fetchSalaries();
-    })
+    }, [])
 
     const filterSalaries = (q) => {
         const filteredRecords = salaries.filter((leave) => {
