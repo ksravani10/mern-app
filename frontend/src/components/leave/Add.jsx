@@ -26,7 +26,7 @@ const Add = () => {
           }
         );
         if (responce.data.success) {
-          navigate('/employee-dashboard/leaves')
+          navigate(`/employee-dashboard/leaves/${user._id}`)
         }
       } catch (error) {
         if (error.response && error.response.data.error) {
@@ -96,7 +96,7 @@ const Add = () => {
           type="submit"
           className="w-full mt-6 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-md"
         >
-          Add Salary
+          Add Leave
         </button>
       </form>
     </div>

@@ -98,10 +98,10 @@ export const EmployeeButtons = ({ _id }) => {
         onClick={() => navigate(`/admin-dashboard/employee/salary/${_id}`)}
       >
         Salary
-      </button>
+      </button> 
       <button
         className="px-3 py-1 bg-red-600 text-white"
-        onClick={() => handleDelete(_id)}
+        onClick={() => navigate(`/admin-dashboard/employee/leaves/${_id}`)}
       >
         Leave
       </button>
