@@ -18,7 +18,7 @@ const AddDepartment = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:3000/api/department/add",
+        "https://employee-server-kohl-one.vercel.app/api/department/add",
         department,
         {
           headers: {

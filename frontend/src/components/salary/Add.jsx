@@ -39,7 +39,7 @@ const Add = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `http://localhost:3000/api/salary/add`,
+        `https://employee-server-kohl-one.vercel.app/api/salary/add`,
         salary,
         {
           headers: {

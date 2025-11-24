@@ -4,7 +4,7 @@ import Login from './pages/Login.jsx'
 import AdminDashboard from './pages/AdminDashboard.jsx'
 import EmployeeDashboard from './pages/EmployeeDashboard.jsx'
 import RoleBaseRoutes from './utils/RoleBaseRoutes.jsx'
-import PrivateRoutes from './utils/privateRoutes.jsx'
+import PrivateRoutes from './utils/PrivateRoutes.jsx';
 import AdminSummary from './components/AdminSummary.jsx'
 import AddDepartment from './components/Department/AddDepartment.jsx'
 import DepartmentList from './components/Department/DepartmentList.jsx'

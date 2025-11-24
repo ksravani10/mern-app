@@ -1,17 +1,24 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-dotenv.config();
 
- const connectToDatabase = async () => {
-    try {
-        await mongoose.connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-        })
-     console.log("✅ MongoDB connected successfully");
-  } catch (error) {
-    console.error("❌ MongoDB connection error:", error.message);
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
+export const connectToDatabase = async () => {
+  if (cached.conn) return cached.conn;
+
+  if (!cached.promise) {
+    cached.promise = mongoose
+      .connect(process.env.MONGODB_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      })
+      .then((mongoose) => mongoose);
   }
-};
 
-export default connectToDatabase;
+  cached.conn = await cached.promise;
+  console.log("✅ MongoDB connected successfully (serverless)");
+  return cached.conn;
+};

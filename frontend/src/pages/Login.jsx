@@ -13,13 +13,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post("http://localhost:3000/api/auth/login", {
+    const response = await axios.post("https://employee-server-kohl-one.vercel.app/api/auth/login", {
       email,
       password,
     });
 
     if (response.data.success) {
-      localStorage.setItem("token", response.data.token); // ✅ token will now exist
+      localStorage.setItem("token", response.data.token); 
       if (response.data.user.role === 'admin') {
         navigate('/admin-dashboard');
       } else {
